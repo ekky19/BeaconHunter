@@ -49,6 +49,7 @@ By feeding this script a properly formatted CSV export (from a SIEM, firewall, o
 * Skips header and summary rows (e.g., containing "All Values", or set your own word)
 * Handles both 3-column and 7-column CSV formats
 * Treats 4–6 columns as 3-column mode
+* 🔍 specificIP option: Set this to focus analysis on a single destination IP instead of scanning the whole CSV
 
 **3. Timestamp Parsing**
 
@@ -94,18 +95,6 @@ However, some malware uses *jitter* to avoid exact intervals.
 
 ---
 
-### 📌 RFI Summary (Sample Output)
-
-```
-============ REQUEST FOR INFORMATION ============
-MDR team reviewed the firewall logs from <filename> and identified beaconing activity:
-
-Details:
-- 192.168.1.10 → 10.0.0.5, every 60s (100% consistent)
-```
-
----
-
 ### 🟡 “not enough data” Meaning
 
 Displayed when fewer than 4 timestamps exist for a source-destination pair.
@@ -122,9 +111,18 @@ Intervals = `[60, 60, 60, 60, 300]`
 
 * Mode = `60s`, appears 4 out of 5 → **80% match**
   ✅ Beaconing detected.
-
 ---
 
+### 📌 RFI Summary (Sample Output)
+
+```
+============ REQUEST FOR INFORMATION ============
+MDR team reviewed the firewall logs from <filename> and identified beaconing activity:
+
+Details:
+- 192.168.1.10 → 10.0.0.5, every 60s (100% consistent)
+```
+---
 ### ✅ Summary
 
 A flexible and practical tool to identify beaconing in network logs.
