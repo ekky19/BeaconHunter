@@ -7,6 +7,8 @@ Author: Ekrem Ozdemir
 Compatible with Windows PowerShell 5.1 and above  
 
 ---
+![image](https://github.com/user-attachments/assets/827dbe5f-cfbe-493c-98be-28cedb3c8362)
+
 
 ### 🎯 Purpose  
 To analyze firewall logs or CSV-based network data and identify whether certain source-destination IP pairs are beaconing — i.e., communicating at consistent time intervals.
